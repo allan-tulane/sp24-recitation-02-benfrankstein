@@ -35,14 +35,83 @@ where $W(1) = 1$.
 
 - [ ] 3. (2 point) Now implement `work_calc`, which generalizes the above so that we can now input $a$, $b$ and a *function* $f(n)$ as arguments. Test this code by completing the test cases in `test_work` and adding 3 more cases.
 
-- [ ] 4. (2 point) Now, derive the asymptotic behavior of $W(n)$ using $f(n) = 1$, $f(n) = \log n$ and $f(n) = n$. Then, generate actual values for $W(n)$ for your code and confirm that the trends match your derivations.
-
+  - [ ] 4. (2 point) Now, derive the asymptotic behavior of $W(n)$ using $f(n) = 1$, $f(n) = \log n$ and $f(n) = n$. Then, generate actual values for $W(n)$ for your code and confirm that the trends match your derivations.
+# O(n log n) #use set to calculate trend empirically.
 **TODO: your answer goes here**
+- The emperical values are as follows:
+15
+31
+63
+63
+127
+127
+
+print(work_calc(10, 2, 2,lambda n: 1))
+print(work_calc(20, 2, 2,lambda n: 1))
+print(work_calc(40, 2, 2,lambda n: 1))
+print(work_calc(60, 2, 2,lambda n: 1))
+print(work_calc(80, 2, 2,lambda n: 1))
+print(work_calc(100, 2, 2,lambda n: 1))
+
+This follows the asymptomatic behavior of O(n log n)
 
 - [ ] 5. (4 points) Now that you have a nice way to empirically generate valuess of $W(n)$, we can look at the relationship between $a$, $b$, and $f(n)$. Suppose that $f(n) = n^c$. What is the asypmptotic behavior of $W(n)$ if $c < \log_b a$? What about $c > \log_b a$? And if they are equal? Modify `test_compare_work` to compare empirical values for different work functions (at several different values of $n$) to justify your answer. 
 
+n, w_1, w_2 = w_1 (greater) | w_2 (less)
+
+
+(10, 10642, 3)
+(20, 170642, 4)
+(50, 6662739, 4)
+(100, 106662739, 5)
+(1000, 1066666143590, 7)
+(5000, 666666601701509, 9)
+(10000, 10666666601701509, 9)
+
+n, w_1, w_2 = w_1(greater) | w_2 (equal)
+
+(10, 10642, 14)
+(20, 170642, 28)
+(50, 6662739, 72)
+(100, 106662739, 148)
+(1000, 1066666143590, 1498)
+(5000, 666666601701509, 7495)
+
+when c > than the numbers are bigger than if its equal or less
 **TODO: your answer goes here**
 
 - [ ] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should. 
 
+Using the greater than and equal to C from question 4
+(10, 10642, 14)
+(20, 170642, 28)
+(50, 6662739, 72)
+(100, 106662739, 148)
+(1000, 1066666143590, 1498)
+(5000, 666666601701509, 7495)
+(10000, 10666666601701509, 14996)
+
+
+# do the same test as number 4 to  make sure the emprical values match the trend of the asymptomatic behavior
+# O(log n)
+
+This follow the O(log n) pattern
+
+4
+5
+6
+6
+7
+7
+
+#print(span_calc(10, 2, 2,lambda n: 1))
+#print(span_calc(20, 2, 2,lambda n: 1))
+#print(span_calc(40, 2, 2,lambda n: 1))
+#print(span_calc(60, 2, 2,lambda n: 1))
+#print(span_calc(80, 2, 2,lambda n: 1))
+#print(span_calc(100, 2, 2,lambda n: 1))
+# master theorum 
+
+# work is all sub iteration
+# span is the longest iteraction
 **TODO: your answer goes here**
